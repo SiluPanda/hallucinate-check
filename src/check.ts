@@ -90,6 +90,7 @@ export function check(text: string, options?: CheckOptions): HallucinationReport
     passThreshold,
     pass: composite >= passThreshold,
     claimAssessments,
+    findings: allFindings,
     methodScores,
     durationMs: Date.now() - start,
   }

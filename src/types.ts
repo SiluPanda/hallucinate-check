@@ -13,6 +13,7 @@ export interface ClaimAssessment { claim: Claim; hallucScore: number; classifica
 export interface HallucinationReport {
   text: string; composite: number; passThreshold: number; pass: boolean
   claimAssessments: ClaimAssessment[]
+  findings: Finding[]
   methodScores: Partial<Record<DetectionMethod, number>>
   durationMs: number
 }
