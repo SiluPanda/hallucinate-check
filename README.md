@@ -3,6 +3,7 @@
 Heuristic hallucination detection for LLM-generated text in Node.js.
 
 [![npm version](https://img.shields.io/npm/v/hallucinate-check.svg)](https://www.npmjs.com/package/hallucinate-check)
+[![npm downloads](https://img.shields.io/npm/dt/hallucinate-check.svg)](https://www.npmjs.com/package/hallucinate-check)
 [![license](https://img.shields.io/npm/l/hallucinate-check.svg)](https://github.com/SiluPanda/hallucinate-check/blob/master/LICENSE)
 [![node](https://img.shields.io/node/v/hallucinate-check.svg)](https://nodejs.org)
 
