@@ -87,11 +87,25 @@ describe('check()', () => {
 
   it('flags example.com URL in text', () => {
     const report = check('More info at https://example.com/page.')
-    const allFindings = report.claimAssessments.flatMap(a => a.findings)
     const fabricatedFindings = report.methodScores['fabricated-entities']
     expect(fabricatedFindings).toBeDefined()
     expect(fabricatedFindings!).toBeLessThan(1)
-    void allFindings
+  })
+
+  it('report.findings contains text-level findings (claimIndex: -1) for placeholder URLs', () => {
+    const report = check('Visit https://example.com for details.')
+    const textLevelFindings = report.findings.filter(f => f.claimIndex === -1)
+    expect(textLevelFindings.length).toBeGreaterThanOrEqual(1)
+    expect(textLevelFindings.some(f => f.description.includes('example.com'))).toBe(true)
+  })
+
+  it('report.findings contains all findings across all enabled methods', () => {
+    const report = check(
+      'Definitely visit https://example.com for info.',
+    )
+    expect(report.findings.length).toBeGreaterThanOrEqual(1)
+    const methods = new Set(report.findings.map(f => f.method))
+    expect(methods.has('fabricated-entities')).toBe(true)
   })
 })
 

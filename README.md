@@ -200,6 +200,7 @@ interface HallucinationReport {
   passThreshold: number;
   pass: boolean;
   claimAssessments: ClaimAssessment[];
+  findings: Finding[];
   methodScores: Partial<Record<DetectionMethod, number>>;
   durationMs: number;
 }
@@ -212,6 +213,7 @@ interface HallucinationReport {
 | `passThreshold` | `number` | The threshold used for the pass/fail determination. |
 | `pass` | `boolean` | `true` if `composite >= passThreshold`. |
 | `claimAssessments` | `ClaimAssessment[]` | Per-claim hallucination assessment. |
+| `findings` | `Finding[]` | All findings from all enabled detectors, including text-level findings not associated with any specific claim (those have `claimIndex: -1`). |
 | `methodScores` | `Partial<Record<DetectionMethod, number>>` | Score produced by each enabled detection method. |
 | `durationMs` | `number` | Wall-clock time for the check in milliseconds. |
 
